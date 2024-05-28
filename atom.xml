@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Cola.Meng&#39;Blog</title>
+  
+  <subtitle>记录点滴</subtitle>
+  <link href="https://crazyon.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://crazyon.github.io/"/>
+  <updated>2024-05-28T05:48:58.347Z</updated>
+  <id>https://crazyon.github.io/</id>
+  
+  <author>
+    <name>CrazyOn</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>反思与前行</title>
+    <link href="https://crazyon.github.io/2024/05/27/%E5%8F%8D%E6%80%9D%E4%B8%8E%E5%89%8D%E8%A1%8C/"/>
+    <id>https://crazyon.github.io/2024/05/27/%E5%8F%8D%E6%80%9D%E4%B8%8E%E5%89%8D%E8%A1%8C/</id>
+    <published>2024-05-27T14:46:01.000Z</published>
+    <updated>2024-05-28T05:48:58.347Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;有很多事情，人们并不在意问题的本质在哪里，总是在狂奔。&lt;/p&gt;
+&lt;h2 id=&quot;忙碌中的迷失&quot;&gt;&lt;a href=&quot;#忙碌中的迷失&quot; class=&quot;headerlink&quot; title=&quot;忙碌中的迷失&quot;&gt;&lt;/a&gt;忙碌中的迷失&lt;/h2&gt;&lt;h3 id=&quot;职场中的例子&quot;&gt;&lt;a</summary>
+        
+      
+    
+    
+    
+    
+    <category term="思考" scheme="https://crazyon.github.io/tags/%E6%80%9D%E8%80%83/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo-快速搭建属于你的博客</title>
+    <link href="https://crazyon.github.io/2024/05/27/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2/"/>
+    <id>https://crazyon.github.io/2024/05/27/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2/</id>
+    <published>2024-05-27T13:29:47.000Z</published>
+    <updated>2024-05-28T05:14:02.669Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;h2 id=&quot;为什么选择Hexo&quot;&gt;&lt;a href=&quot;#为什么选择Hexo&quot; class=&quot;headerlink&quot;</summary>
+        
+      
+    
+    
+    
+    
+    <category term="博客" scheme="https://crazyon.github.io/tags/%E5%8D%9A%E5%AE%A2/"/>
+    
+  </entry>
+  
+</feed>

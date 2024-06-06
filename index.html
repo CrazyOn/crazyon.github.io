@@ -73,6 +73,163 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-langchain示例" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/05/langchain%E7%A4%BA%E4%BE%8B/" class="article-date">
+  <time class="dt-published" datetime="2024-06-05T00:29:34.000Z" itemprop="datePublished">2024-06-05</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/05/langchain%E7%A4%BA%E4%BE%8B/">LangChain示例</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <ul>
+<li><p>Conda环境</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">conda create -n langchain-env python=3.11</span><br><span class="line">conda activate langchain-env</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>依赖项</p>
+  <figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">pip install --upgrade langchain</span><br><span class="line">pip install -U langchain-community</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Python调用示例</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromptTemplate</span><br><span class="line"><span class="keyword">from</span> langchain_core.output_parsers <span class="keyword">import</span> StrOutputParser</span><br><span class="line"><span class="keyword">from</span> langchain_core.runnables <span class="keyword">import</span> RunnablePassthrough</span><br><span class="line"><span class="keyword">from</span> langchain_community.llms <span class="keyword">import</span> Tongyi</span><br><span class="line"></span><br><span class="line"><span class="comment"># 设置环境变量</span></span><br><span class="line">os.environ[<span class="string">&quot;DASHSCOPE_API_KEY&quot;</span>] = <span class="string">&quot;sk-xxx&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 初始化通义千问模型</span></span><br><span class="line">    model = Tongyi(model_name=<span class="string">&quot;qwen-turbo&quot;</span>)</span><br><span class="line">    prompt = ChatPromptTemplate.from_template(</span><br><span class="line">        <span class="string">&quot;Tell me a short joke about &#123;topic&#125;&quot;</span></span><br><span class="line">    )</span><br><span class="line">    output_parser = StrOutputParser()</span><br><span class="line">    chain = (</span><br><span class="line">        &#123;<span class="string">&quot;topic&quot;</span>: RunnablePassthrough()&#125;</span><br><span class="line">        | prompt</span><br><span class="line">        | model</span><br><span class="line">        | output_parser</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(chain.invoke(<span class="string">&quot;ice cream&quot;</span>)) </span><br></pre></td></tr></table></figure>
+</li>
+<li><p>运行结果<br><code>Why did the ice cream truck break down? Because it couldn&#39;t hold its load!</code></p>
+</li>
+<li><p>模块拆解</p>
+<ul>
+<li><p>导入必要的模块：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> langchain_core.prompts <span class="keyword">import</span> ChatPromptTemplate</span><br><span class="line"><span class="keyword">from</span> langchain_core.output_parsers <span class="keyword">import</span> StrOutputParser</span><br><span class="line"><span class="keyword">from</span> langchain_core.runnables <span class="keyword">import</span> RunnablePassthrough</span><br><span class="line"><span class="keyword">from</span> langchain_community.llms <span class="keyword">import</span> Tongyi</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>设置环境变量：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">os.environ[<span class="string">&quot;DASHSCOPE_API_KEY&quot;</span>] = <span class="string">&quot;sk-xxx&quot;</span></span><br></pre></td></tr></table></figure>
+<p>  这里设置了一个环境变量 <code>DASHSCOPE_API_KEY</code>，用于API认证。</p>
+</li>
+<li><p>主函数：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&quot;__main__&quot;</span>:</span><br><span class="line">    <span class="comment"># 初始化通义千问模型</span></span><br><span class="line">    model = TongYi(model_name=<span class="string">&quot;qwen-turbo&quot;</span>)</span><br><span class="line">    prompt = ChatPromptTemplate.from_template(</span><br><span class="line">        <span class="string">&quot;Tell me a short joke about &#123;topic&#125;&quot;</span></span><br><span class="line">    )</span><br><span class="line">    output_parser = StrOutputParser()</span><br><span class="line">    chain = (</span><br><span class="line">        &#123;<span class="string">&quot;topic&quot;</span>: RunnablePassthrough()&#125;</span><br><span class="line">        | prompt</span><br><span class="line">        | model</span><br><span class="line">        | output_parser</span><br><span class="line">    )</span><br><span class="line"></span><br><span class="line">    <span class="built_in">print</span>(chain.invoke(<span class="string">&quot;ice cream&quot;</span>))</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><p>传送门</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain/tree/master/libs/community/langchain_community/llms"><code>langchain-ai/langchain</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain/blob/234394f6316d854972e65009c7a94921dd780f51/libs/community/langchain_community/llms/tongyi.py#L160"><code>Tongyi</code></a> </li>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain/blob/234394f6316d854972e65009c7a94921dd780f51/libs/core/langchain_core/prompts/chat.py#L709"><code>ChatPromptTemplate</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain/blob/234394f6316d854972e65009c7a94921dd780f51/libs/core/langchain_core/output_parsers/string.py#L6"><code>StrOutputParser</code></a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain/blob/234394f6316d854972e65009c7a94921dd780f51/libs/core/langchain_core/runnables/passthrough.py#L65"><code>RunnablePassthrough</code></a></li>
+</ul>
+</li>
+<li><p>初始化模型：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model = Tongyi(model_name=<span class="string">&quot;qwen-turbo&quot;</span>)</span><br></pre></td></tr></table></figure>
+<p>  使用 <code>Tongyi</code> 初始化了一个名为 <code>qwen-turbo</code> 的模型。<br>  在 <code>langchain-ai/langchain</code> 仓库中，<code>Tongyi</code> 类是用于与阿里巴巴的通义（Qwen）大语言模型进行交互的一个类。</p>
+</li>
+<li><p>创建提示模板：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">prompt = ChatPromptTemplate.from_template(</span><br><span class="line">    <span class="string">&quot;Tell me a short joke about &#123;topic&#125;&quot;</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>  创建了一个聊天提示模板<code>ChatPromptTemplate</code>，模板内容是<code>Tell me a short joke about &#123;topic&#125;</code>。</p>
+</li>
+<li><p>创建输出解析器：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">output_parser = StrOutputParser()</span><br></pre></td></tr></table></figure>
+<p>  使用 <code>StrOutputParser</code> 解析模型的输出。</p>
+</li>
+<li><p>创建链条：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">chain = (</span><br><span class="line">    &#123;<span class="string">&quot;topic&quot;</span>: RunnablePassthrough()&#125;</span><br><span class="line">    | prompt</span><br><span class="line">    | model</span><br><span class="line">    | output_parser</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+<p>  创建了一个链条，依次执行传递主题<code>RunnablePassthrough</code>、生成提示、调用模型和解析输出的操作。</p>
+</li>
+<li><p>调用链条：</p>
+  <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(chain.invoke(<span class="string">&quot;ice cream&quot;</span>))</span><br></pre></td></tr></table></figure>
+<p>  调用链条并传入主题<code>ice cream</code>，然后打印生成的笑话。</p>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://crazyon.github.io/2024/06/05/langchain%E7%A4%BA%E4%BE%8B/" data-id="clx2rwjmp0005yex83fhj3wwp" data-title="LangChain示例" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LangChain/" rel="tag">LangChain</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-LangChain学习资料汇总" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2024/06/01/LangChain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/" class="article-date">
+  <time class="dt-published" datetime="2024-06-01T00:45:35.000Z" itemprop="datePublished">2024-06-01</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2024/06/01/LangChain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/">LangChain学习资料汇总</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>LangChain是一个用于开发由大型语言模型 (LLM) 驱动的应用程序的框架。</p>
+<h2 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/langchain-ai/langchain">langchain</a> - GitHub项目地址</li>
+</ul>
+<h2 id="官方文档"><a href="#官方文档" class="headerlink" title="官方文档"></a>官方文档</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://python.langchain.com/v0.2/docs/introduction/">LangChain Documentation</a> - 官方文档，涵盖了 LangChain 的基本概念、安装指南和入门教程。</li>
+<li>langchain-core: 基础抽象和 LangChain 表达语言。</li>
+<li>langchain-community: 第三方集成。</li>
+<li>Partner packages (如 langchain-openai, langchain-anthropic 等): 一些集成被进一步拆分为仅依赖于 langchain-core 的轻量包。</li>
+<li>langchain: 组成应用程序认知架构的链、代理和检索策略。</li>
+<li><a target="_blank" rel="noopener" href="https://langchain-ai.github.io/langgraph/">langgraph</a>: 通过将步骤建模为图中的边和节点，使用 LLM 构建强大和有状态的多角色应用程序。</li>
+<li><a target="_blank" rel="noopener" href="https://python.langchain.com/v0.2/docs/langserve/">langserve</a>: 将 LangChain 链部署为 REST API。</li>
+<li><a target="_blank" rel="noopener" href="https://docs.smith.langchain.com/">LangSmith</a>: 一个开发者平台，让你调试、测试、评估和监控 LLM 应用程序。</li>
+</ul>
+<h2 id="B站资源"><a href="#B站资源" class="headerlink" title="B站资源"></a>B站资源</h2><ul>
+<li>【转载】<a target="_blank" rel="noopener" href="https://www.bilibili.com/video/BV1XC411n72m/?p=2&spm_id_from=pageDriver&vd_source=53d3e6820711a9574b9c15ab799d3453">基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用</a> - 【大语言模型】吴恩达最新：基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用 教程，大模型应用落地（附大模型开发文档）</li>
+</ul>
+<p>后续持续补充</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://crazyon.github.io/2024/06/01/LangChain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/" data-id="clx2rwjmo0004yex8gq823uu7" data-title="LangChain学习资料汇总" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/LangChain/" rel="tag">LangChain</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-20240529-01-小分享" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/05/29/20240529-01-%E5%B0%8F%E5%88%86%E4%BA%AB/" class="article-date">
@@ -110,7 +267,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://crazyon.github.io/2024/05/29/20240529-01-%E5%B0%8F%E5%88%86%E4%BA%AB/" data-id="clwstacyy0001gtx8f8qv4pmh" data-title="让你拥有“拉黑全世界”的能力" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://crazyon.github.io/2024/05/29/20240529-01-%E5%B0%8F%E5%88%86%E4%BA%AB/" data-id="clx2rwjmi0001yex87bln5fz1" data-title="让你拥有“拉黑全世界”的能力" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -161,7 +318,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://crazyon.github.io/2024/05/27/%E5%8F%8D%E6%80%9D%E4%B8%8E%E5%89%8D%E8%A1%8C/" data-id="clwstacz90007gtx8bifyd82f" data-title="反思与前行" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://crazyon.github.io/2024/05/27/%E5%8F%8D%E6%80%9D%E4%B8%8E%E5%89%8D%E8%A1%8C/" data-id="clx2rwjmw000dyex85bx8eo9j" data-title="反思与前行" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -245,7 +402,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://crazyon.github.io/2024/05/27/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2/" data-id="clwstacz10002gtx8b09q0xkk" data-title="Hexo-快速搭建属于你的博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="https://crazyon.github.io/2024/05/27/Hexo-%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E5%B1%9E%E4%BA%8E%E4%BD%A0%E7%9A%84%E5%8D%9A%E5%AE%A2/" data-id="clx2rwjml0002yex83i53bnuu" data-title="Hexo-快速搭建属于你的博客" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -272,7 +429,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E5%88%86%E4%BA%AB/" rel="tag">小分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/LangChain/" rel="tag">LangChain</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%8D%9A%E5%AE%A2/" rel="tag">博客</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E5%B0%8F%E5%88%86%E4%BA%AB/" rel="tag">小分享</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%80%9D%E8%80%83/" rel="tag">思考</a></li></ul>
     </div>
   </div>
 
@@ -282,7 +439,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%B0%8F%E5%88%86%E4%BA%AB/" style="font-size: 10px;">小分享</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 10px;">思考</a>
+      <a href="/tags/LangChain/" style="font-size: 20px;">LangChain</a> <a href="/tags/%E5%8D%9A%E5%AE%A2/" style="font-size: 10px;">博客</a> <a href="/tags/%E5%B0%8F%E5%88%86%E4%BA%AB/" style="font-size: 10px;">小分享</a> <a href="/tags/%E6%80%9D%E8%80%83/" style="font-size: 10px;">思考</a>
     </div>
   </div>
 
@@ -291,7 +448,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/06/">June 2024</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/05/">May 2024</a></li></ul>
     </div>
   </div>
 
@@ -302,6 +459,14 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/2024/06/05/langchain%E7%A4%BA%E4%BE%8B/">LangChain示例</a>
+          </li>
+        
+          <li>
+            <a href="/2024/06/01/LangChain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/">LangChain学习资料汇总</a>
+          </li>
         
           <li>
             <a href="/2024/05/29/20240529-01-%E5%B0%8F%E5%88%86%E4%BA%AB/">让你拥有“拉黑全世界”的能力</a>

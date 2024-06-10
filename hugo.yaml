@@ -33,7 +33,7 @@ params:
   ShowShareButtons: true
   ShowPostNavLinks: true
   ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
   ShowRssButtonInSectionTermList: true
   UseHugoToc: true
@@ -42,8 +42,8 @@ params:
   comments: false
   hidemeta: false
   hideSummary: false
-  showtoc: false
-  tocopen: false
+  showtoc: true
+  tocopen: true
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -55,7 +55,7 @@ params:
     safari_pinned_tab: "<link / abs url>"
 
   label:
-    text: "主页"
+    text: "Home"
     icon: /apple-touch-icon.png
     iconHeight: 35
 
@@ -69,9 +69,9 @@ params:
     imageHeight: 120
     imageTitle: my image
     buttons:
-      - name: 文章
+      - name: posts
         url: posts
-      - name: 标签
+      - name: tags
         url: tags
 
   # home-info mode
@@ -100,10 +100,10 @@ params:
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
-  editPost:
-    URL: "https://github.com/CrazyOn/crazyon-blog-hugo/content"
-    Text: "Suggest Changes" # edit text
-    appendFilePath: true # to append file path to Edit link
+  # editPost:
+  #   URL: "https://github.com/CrazyOn/crazyon-blog-hugo/blob/master/content"
+  #   Text: "Suggest Changes" # edit text
+  #   appendFilePath: true # to append file path to Edit link
 
   # for search
   # https://fusejs.io/api/options.html
@@ -119,15 +119,15 @@ params:
 menu:
   main:
     - identifier: posts
-      name: 文章
+      name: posts
       url: /posts/
       weight: 10
     - identifier: categories
-      name: 分类
+      name: categories
       url: /categories/
       weight: 10
     - identifier: tags
-      name: 标签
+      name: tags
       url: /tags/
       weight: 20
     #- identifier: example

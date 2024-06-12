@@ -1,7 +1,6 @@
 +++
 title = 'LangChain学习资料汇总'
 date = 2024-06-01T08:45:35+08:00
-draft = true
 +++
 LangChain是一个用于开发由大型语言模型 (LLM) 驱动的应用程序的框架。
 

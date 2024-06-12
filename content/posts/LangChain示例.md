@@ -1,7 +1,6 @@
 +++
 title = 'LangChain示例'
 date = 2024-06-05T08:29:34+08:00
-draft = true
 +++
 Conda环境
 ``` bash

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>Cola.Meng&#39;Blog</title>
-    <link>http://localhost:1313/</link>
-    <description>Recent content on Cola.Meng&#39;Blog</description>
+    <title>Posts on Cola.Meng&#39;Blog</title>
+    <link>http://localhost:1313/zh-cn/posts/</link>
+    <description>Recent content in Posts on Cola.Meng&#39;Blog</description>
     <image>
       <title>Cola.Meng&#39;Blog</title>
       <url>http://localhost:1313/%3Clink%20or%20path%20of%20image%20for%20opengraph,%20twitter-cards%3E</url>
@@ -11,20 +11,13 @@
     </image>
     <generator>Hugo -- 0.127.0</generator>
     <language>zh-cn</language>
-    <lastBuildDate>Wed, 12 Jun 2024 19:34:04 +0800</lastBuildDate>
-    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>X</title>
-      <link>http://localhost:1313/posts/x/</link>
-      <pubDate>Wed, 12 Jun 2024 19:34:04 +0800</pubDate>
-      <guid>http://localhost:1313/posts/x/</guid>
-      <description>GitHub项目地址 LangChain 官方文档 LangChain Documentation - 官方文档: 涵盖了 LangChain 的基本概念、安装指南和入门教程。 langchain-core: 基础抽象和 LangChain 表达语言。 langchain-community: 第三方集成。 Partner packages (如 langchain-openai, langchain-anthropic 等): 一些集成被进一步拆分为仅依赖于 langchain-core 的轻量包。 langchain: 组成应用程序认知架构的链、代理和检索策略。 langgraph: 通过将步骤建模为图中的边和节点，使用 LLM 构建强大和有状态的多角色应用程序。 langserve: 将 LangChain 链部署为 REST API。 LangSmith: 一个开发者平台，让你调试、测试、评估和监控 LLM 应用程序。 B站资源 【转载】基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用 - 【大语言模型】吴恩达最新：基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用 教程，大模型应用落地（附大模型开发文档） 后续持续补充</description>
-    </item>
+    <lastBuildDate>Wed, 05 Jun 2024 08:29:34 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/zh-cn/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>LangChain示例</title>
-      <link>http://localhost:1313/posts/langchain%E7%A4%BA%E4%BE%8B/</link>
+      <link>http://localhost:1313/zh-cn/posts/langchain%E7%A4%BA%E4%BE%8B/</link>
       <pubDate>Wed, 05 Jun 2024 08:29:34 +0800</pubDate>
-      <guid>http://localhost:1313/posts/langchain%E7%A4%BA%E4%BE%8B/</guid>
+      <guid>http://localhost:1313/zh-cn/posts/langchain%E7%A4%BA%E4%BE%8B/</guid>
       <description>Conda环境
 conda create -n langchain-env python=3.11 conda activate langchain-env 依赖项
 pip install --upgrade langchain pip install -U langchain-community Python调用示例
@@ -32,9 +25,9 @@ import os from langchain_core.prompts import ChatPromptTemplate from langchain_c
     </item>
     <item>
       <title>LangChain学习资料汇总</title>
-      <link>http://localhost:1313/posts/langchain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</link>
+      <link>http://localhost:1313/zh-cn/posts/langchain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</link>
       <pubDate>Sat, 01 Jun 2024 08:45:35 +0800</pubDate>
-      <guid>http://localhost:1313/posts/langchain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</guid>
+      <guid>http://localhost:1313/zh-cn/posts/langchain%E5%AD%A6%E4%B9%A0%E8%B5%84%E6%96%99%E6%B1%87%E6%80%BB/</guid>
       <description>LangChain是一个用于开发由大型语言模型 (LLM) 驱动的应用程序的框架。
 GitHub项目地址 LangChain 官方文档 LangChain Documentation - 官方文档: 涵盖了 LangChain 的基本概念、安装指南和入门教程。 langchain-core: 基础抽象和 LangChain 表达语言。 langchain-community: 第三方集成。 Partner packages (如 langchain-openai, langchain-anthropic 等): 一些集成被进一步拆分为仅依赖于 langchain-core 的轻量包。 langchain: 组成应用程序认知架构的链、代理和检索策略。 langgraph: 通过将步骤建模为图中的边和节点，使用 LLM 构建强大和有状态的多角色应用程序。 langserve: 将 LangChain 链部署为 REST API。 LangSmith: 一个开发者平台，让你调试、测试、评估和监控 LLM 应用程序。 B站资源 【转载】基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用 - 【大语言模型】吴恩达最新：基于LangChain的大语言模型应用开发+构建和评估高级的RAG模型应用 教程，大模型应用落地（附大模型开发文档） 后续持续补充</description>
     </item>

@@ -1,5 +1,5 @@
 baseURL: https://crazyon.github.io/
-languageCode: zh-cn
+languageCode: en
 title: Cola.Meng'Blog
 
 theme: ["PaperMod"]
@@ -13,7 +13,7 @@ enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-defaultContentLanguage: zh-cn # 最顶部首先展示的语言页面
+defaultContentLanguage: en # 最顶部首先展示的语言页面
 defaultContentLanguageInSubdir: true
 
 minify:
